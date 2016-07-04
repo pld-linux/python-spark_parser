@@ -7,14 +7,14 @@
 %define 	module		spark_parser
 %define 	egg_name	spark_parser
 %define		pypi_name	spark_parser
-Summary:	An Early-Algorithm LR Parser
+Summary:	An Early-Algorithm Context-free grammar Parser
 Name:		python-%{module}
-Version:	1.2.1
+Version:	1.4.0
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/s/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-# Source0-md5:	e511d1f1ab69f61c59eaa6a5e99f3113
+# Source0-md5:	e3c8f2e41572075d9e08daabb5f24253
 URL:		https://github.com/rocky/python-spark/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -31,9 +31,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 SPARK stands for Scanning, Parsing, and Rewriting Kit. It uses Jay
-Early's algorithm for LR parsing and comes with some generic Abstract
-Syntax Tree routines. There is also a prototype scanner which does its
-job by combining Python regular expressions.
+Early's algorithm for parsing context free grammars, and comes with
+some generic Abstract Syntax Tree routines. There is also a prototype
+scanner which does its job by combining Python regular expressions.
+
+Note: Early algorithm parsers are almost linear when given an LR
+grammar. These are grammars which are left-recursive.
 
 %package -n python3-%{module}
 Summary:	An Early-Algorithm LR Parser
@@ -41,9 +44,12 @@ Group:		Libraries/Python
 
 %description -n python3-%{module}
 SPARK stands for Scanning, Parsing, and Rewriting Kit. It uses Jay
-Early's algorithm for LR parsing and comes with some generic Abstract
-Syntax Tree routines. There is also a prototype scanner which does its
-job by combining Python regular expressions.
+Early's algorithm for parsing context free grammars, and comes with
+some generic Abstract Syntax Tree routines. There is also a prototype
+scanner which does its job by combining Python regular expressions.
+
+Note: Early algorithm parsers are almost linear when given an LR
+grammar. These are grammars which are left-recursive.
 
 %prep
 %setup -q -n %{module}-%{version}
