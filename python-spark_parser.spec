@@ -4,15 +4,17 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-%define		module	spark_parser
+%define 	module		spark_parser
+%define 	egg_name	spark_parser
+%define		pypi_name	spark_parser
 Summary:	An Early-Algorithm LR Parser
 Name:		python-%{module}
-Version:	1.1.1
+Version:	1.2.1
 Release:	1
 License:	MIT
 Group:		Libraries/Python
-Source0:	https://pypi.python.org/packages/ff/13/752712a1bf51a76eedfcfc1d6d06b48388fbe0194722b736190ccea57c3a/%{module}-%{version}.tar.gz
-# Source0-md5:	2fdfb3e8e82a79ca1d58b31c8562df1c
+Source0:	https://files.pythonhosted.org/packages/source/s/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+# Source0-md5:	e511d1f1ab69f61c59eaa6a5e99f3113
 URL:		https://github.com/rocky/python-spark/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -21,7 +23,6 @@ BuildRequires:	python-nose >= 1.0
 BuildRequires:	python-setuptools
 %endif
 %if %{with python3}
-BuildRequires:	python3-devel
 BuildRequires:	python3-nose >= 1.0
 BuildRequires:	python3-setuptools
 %endif
@@ -37,7 +38,6 @@ job by combining Python regular expressions.
 %package -n python3-%{module}
 Summary:	An Early-Algorithm LR Parser
 Group:		Libraries/Python
-Requires:	python3-modules
 
 %description -n python3-%{module}
 SPARK stands for Scanning, Parsing, and Rewriting Kit. It uses Jay
